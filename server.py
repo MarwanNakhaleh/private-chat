@@ -6,8 +6,6 @@ import traceback
 
 from client import Client
 
-threads = []
-
 host = "127.0.0.1"
 port = 42069
 
@@ -48,12 +46,12 @@ def receive():
         nickname = client.recv(1024).decode("ascii")
         new_client = Client(client, nickname) # message is nickname
         users.append(new_client)
-        print(f"{new_client.nickname} connected from IP address {str(address)}\n")
-        broadcast(f"\n{new_client.nickname} entered the chat")
+        print(f"{new_client.nickname} connected from IP address {str(address)}")
         
         thread = threading.Thread(target=handle, args=(client, new_client.nickname,))
-        threads.append(thread)
         thread.start()
+        
+        broadcast(f"{new_client.nickname} entered the chat")
         
 if __name__ == "__main__":
     print(f"starting server at address {socket.gethostbyname(socket.gethostname())}")
@@ -62,7 +60,5 @@ if __name__ == "__main__":
     except (Exception, KeyboardInterrupt) as e:
         print(traceback.format_exc())
         server.close()
-        for t in threads:
-            t.kill_received = True
         sys.exit(e)
         
