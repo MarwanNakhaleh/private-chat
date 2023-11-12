@@ -10,3 +10,4 @@ I'm kinda sorta playing with the idea of storing encrypted messages on a blockch
 # Relevant rabbit holes for my own development
 * [Starting point for TCP chat code in Python](https://www.neuralnine.com/tcp-chat-in-python/)
 * [Encrypted messages on Ethereum blockchain](https://betterprogramming.pub/exchanging-encrypted-data-on-blockchain-using-metamask-a2e65a9a896c)
+* [Fediverse for decentralized social media](https://jointhefedi.com)
